@@ -1,0 +1,87 @@
+/* ================= 亮色模式：柔和暖米色調色盤 ================= */
+/* 此檔案在 VitePress 預設樣式之後載入，可正確覆寫 CSS 變數與元素樣式 */
+
+html:not(.dark) {
+  /* 背景層次：主內容 → 側欄 → 浮層 → 程式碼區塊 */
+  --vp-c-bg:       #FAF8F5;
+  --vp-c-bg-alt:   #F2EEE8;
+  --vp-c-bg-elv:   #EFEDE7;
+  --vp-c-bg-soft:  #EAE6DE;
+
+  /* 文字層次（主文字 13.4:1、次文字 6.6:1，符合 WCAG AA） */
+  --vp-c-text-1:   #2C2A27;
+  --vp-c-text-2:   #5A5650;
+  --vp-c-text-3:   #8A8580;
+
+  /* 邊框與分隔線 */
+  --vp-c-divider:  #DAD5CD;
+  --vp-c-gutter:   #D0CAC1;
+  --vp-c-border:   #C9C3B8;
+}
+
+/* 導覽列背景（VitePress 用 rgba + backdrop-filter，需直接覆寫背景色） */
+html:not(.dark) .VPNavBar,
+html:not(.dark) .VPNavBar .container {
+  background-color: #FAF8F5 !important;
+}
+
+html:not(.dark) .VPNavBar.has-sidebar .container::before {
+  background: linear-gradient(to right, #FAF8F5, transparent) !important;
+}
+
+/* 側欄與右側目錄：所有層次一起覆寫 */
+html:not(.dark) .VPSidebar,
+html:not(.dark) .VPDoc .aside,
+html:not(.dark) .VPDoc .aside-container,
+html:not(.dark) .VPDoc .aside-content,
+html:not(.dark) .VPDocAside,
+html:not(.dark) .VPDocAsideOutline,
+html:not(.dark) .spacer {
+  background-color: #F2EEE8 !important;
+}
+
+/* aside-container：VitePress 預設 position:fixed + height:100vh，
+   在自訂三欄獨立滾動佈局中改為 relative，讓 .aside 負責滾動 */
+.VPDoc .aside-container {
+  position: relative !important;
+  height: auto !important;
+  top: auto !important;
+  overflow-y: visible !important;
+}
+
+/* aside-curtain：position:fixed; bottom:0 的漸層遮罩，
+   在自訂佈局中固定在右下角形成白塊，直接隱藏 */
+.VPDoc .aside-curtain,
+.aside-curtain {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 浮動收合按鈕背景與邊框 */
+html:not(.dark) .sidebar-toggle-btn,
+html:not(.dark) .aside-toggle-btn {
+  background-color: #EFEDE7 !important;
+  border-color: #DAD5CD !important;
+  color: #5A5650 !important;
+}
+
+/* ================= 可下載檔案連結 ================= */
+/* 由 config.mts markdown.image rule 產生：![alt](file.md) → <a class="file-download"> */
+.file-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background-color: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.file-download:hover {
+  background-color: var(--vp-c-bg-elv);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}

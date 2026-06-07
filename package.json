@@ -1,0 +1,20 @@
+{
+  "name": "md-to-web",
+  "version": "1.0.0",
+  "description": "VitePress template with Obsidian wikilink support",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaochangyu/md-to-web.git"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.35"
+  }
+}
