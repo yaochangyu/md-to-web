@@ -1275,7 +1275,15 @@ export default defineConfig({
     nav: [
       { text: '首頁', link: '/' }
     ],
-    sidebar: [],
+    sidebar: [
+      {
+        text: '指南',
+        items: [
+          { text: '快速開始', link: '/guide/getting-started' },
+          { text: '語法範例', link: '/guide/syntax' },
+        ]
+      }
+    ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yaochangyu/md-to-web' }
     ]
