@@ -36,7 +36,9 @@ https://yaochangyu.github.io/md-to-web/
 git clone https://github.com/yaochangyu/md-to-web.git
 cd md-to-web
 npm install
-npm run docs:dev
+npm run docs:dev      # 開發伺服器，即時預覽
+npm run docs:build    # 產生靜態檔（與 CI 相同流程）
+npm run docs:preview  # 預覽 build 結果
 ```
 
 ## 新增頁面
